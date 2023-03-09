@@ -1,0 +1,5 @@
+# Confidential
+/connect_device_package/*
+
+# SDKのみgit管理
+!/connect_device_package/aws-iot-device-sdk-python-v2/
