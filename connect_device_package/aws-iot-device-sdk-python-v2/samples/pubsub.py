@@ -100,6 +100,10 @@ if __name__ == '__main__':
     # Publish message to server desired number of times.
     # This step is skipped if message is blank.
     # This step loops forever if count was set to 0.
+
+    import my_bme280
+    import datetime
+
     if message_string:
         if message_count == 0:
             print ("Sending messages until program killed")
@@ -109,7 +113,21 @@ if __name__ == '__main__':
         publish_count = 1
         while (publish_count <= message_count) or (message_count == 0):
             message = "{} [{}]".format(message_string, publish_count)
+            # センサーデータの取得
+            tmp, prs, hmd = my_bme280.readData()
+            #　現在時刻の取得
+            now = datetime.datetime.now()
+            now_str = str(now)
+
+            #　センサーデータの表示
+            message = {}
+            message['count'] = "[{}]".format(publish_count)
+            message['temperature'] = "{}".format(tmp)
+            message['pressure'] = "{}".format(prs)
+            message['humidity'] = "{}".format(hmd)
+            message['datetime'] = "{}".format(now_str)
             print("Publishing message to topic '{}': {}".format(message_topic, message))
+
             message_json = json.dumps(message)
             mqtt_connection.publish(
                 topic=message_topic,
