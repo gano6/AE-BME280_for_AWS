@@ -1,5 +1,8 @@
 # Confidential
 /connect_device_package/*
 
-# SDKのみgit管理
+# SDKはgit管理
 !/connect_device_package/aws-iot-device-sdk-python-v2/
+
+# システム上重要な部分のため、エンドポイントを削除してgit管理
+!/connect_device_package/start.sh
