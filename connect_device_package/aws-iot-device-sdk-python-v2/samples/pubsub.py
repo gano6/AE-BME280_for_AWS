@@ -101,6 +101,8 @@ if __name__ == '__main__':
     # This step is skipped if message is blank.
     # This step loops forever if count was set to 0.
 
+######## 修正部分 #########################################################################
+
     import my_bme280
     import datetime
 
@@ -111,8 +113,11 @@ if __name__ == '__main__':
             print ("Sending {} message(s)".format(message_count))
 
         publish_count = 1
-        while (publish_count <= message_count) or (message_count == 0):
-            message = "{} [{}]".format(message_string, publish_count)
+
+        #  AWS IoT Core側に最長12時間のセッション制限がある
+        #  12時間以上継続して計測する場合、while文など繰り返し処理を用いたスケジュール管理は不適
+        if (publish_count <= message_count) or (message_count == 0):
+
             # センサーデータの取得
             tmp, prs, hmd = my_bme280.readData()
             #　現在時刻の取得
@@ -133,8 +138,12 @@ if __name__ == '__main__':
                 topic=message_topic,
                 payload=message_json,
                 qos=mqtt.QoS.AT_LEAST_ONCE)
-            time.sleep(1)
             publish_count += 1
+
+            # 計測スケジュールはcronで管理するため、処理を正常終了させる
+            sys.exit(0)
+
+########################################################################################
 
     # Wait for all messages to be received.
     # This waits forever if count was set to 0.
