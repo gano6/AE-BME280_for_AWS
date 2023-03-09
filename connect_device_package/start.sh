@@ -31,6 +31,8 @@ if ! python3 -c "import awsiot" &> /dev/null; then
   fi
 fi
 
+##### 修正部分 ##################################################################################################################################################################################################################################################################
+
 # run pub/sub sample app using certificates downloaded in package
 # printf "\nRunning pub/sub sample application...\n"
 until python3 aws-iot-device-sdk-python-v2/samples/pubsub.py --endpoint example.iot.us-east-1.amazonaws.com --ca_file root-CA.crt --cert Raspi_tmp_hmd.cert.pem --key Raspi_tmp_hmd.private.key --client_id basicPubSub --topic raspi1/sensor/Tmp_Hmd --count 0;do sleep 0;done
