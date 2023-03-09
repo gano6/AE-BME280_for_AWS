@@ -66,9 +66,14 @@ def readData():
 	temp_raw = (data[3] << 12) | (data[4] << 4) | (data[5] >> 4)
 	hum_raw  = (data[6] << 8)  |  data[7]
 	
-	compensate_T(temp_raw)
-	compensate_P(pres_raw)
-	compensate_H(hum_raw)
+	temperature = compensate_T(temp_raw)
+	pressure    = compensate_P(pres_raw)
+	humidity    = compensate_H(hum_raw)
+
+	tmp = round(temperature, 2)
+	prs = round(pressure/100, 2)
+	hmd = round(humidity, 2)
+	return tmp, prs, hmd
 
 def compensate_P(adc_P):
 	global  t_fine
@@ -93,6 +98,7 @@ def compensate_P(adc_P):
 	pressure = pressure + ((v1 + v2 + digP[6]) / 16.0)  
 
 	print ("pressure : %7.2f hPa" % (pressure/100))
+	return pressure
 
 def compensate_T(adc_T):
 	global t_fine
@@ -101,6 +107,7 @@ def compensate_T(adc_T):
 	t_fine = v1 + v2
 	temperature = t_fine / 5120.0
 	print ("temp : %-6.2f ℃" % (temperature))
+	return temperature
 
 def compensate_H(adc_H):
 	global t_fine
@@ -115,6 +122,7 @@ def compensate_H(adc_H):
 	elif var_h < 0.0:
 		var_h = 0.0
 	print ("hum : %6.2f ％" % (var_h))
+	return var_h
 
 
 def setup():
