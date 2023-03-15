@@ -1,6 +1,6 @@
 # AE-BME280 for AWS
 
-![https://github.com/gano6/AE-BME280_for_AWS/issues/5#issue-1625126077]
+<img width="1432" alt="Amazon QuickSight（気温）" src="https://user-images.githubusercontent.com/91422957/225275332-7de792fc-4503-4331-bbc0-e8faac83a7a4.png">
 
 ## 概要
 農業系卒業論文の執筆にあたり開発
