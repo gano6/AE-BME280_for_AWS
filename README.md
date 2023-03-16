@@ -15,7 +15,7 @@
 AWSを用いた安価な農業向けIoTクラウドシステムの構築
 
 
-## 開発環境および使用サービス
+## 開発環境
 ### Raspberry Pi 4 Model B
 | 項目 | 内容 |
 | :---: | :---: |
@@ -29,10 +29,45 @@ AWSを用いた安価な農業向けIoTクラウドシステムの構築
 
 ### AWS
 - AWS IoT Core
+- AWS IoT Device SDK v2 for Python
 - AWS IoT Analytics
 - Amazon QuickSight
 
-*※ AWSアカウントおよびIAMユーザーの作成が必要*
+*※ "AWSアカウント"および"IAMユーザー"の作成が必要*
 
-### VScode
-ラズパイとのSSH接続、プログラミング用で使用
+### VSCode(Visual Studio Code)
+Raspberry PiとのSSH接続、プログラミング用で使用
+
+## アーキテクチャ図
+<img width="1021" alt="アーキテクチャ図_AE-BME280" src="https://user-images.githubusercontent.com/91422957/225512322-5068981d-965b-423d-8264-b3aa56aa2530.png">
+
+
+## 当リポジトリのインストール方法
+*開発で当リポジトリを複製、改変する場合はこちらから*<br>
+*※ 「connect_device_package」は各個人のAWSアカウントからダウンロードが必要*
+
+#### 方法①
+```
+git clone https://github.com/gano6/AE-BME280_for_AWS.git
+```
+*※ "git"のインストールが必要*
+
+#### 方法②
+「<span style="color: green; "><> code</span>」→ 「Download ZIP」
+
+
+## 開発チュートリアル
+
+#### [①Raspberry Piセットアップ　〜　AWS IoT Coreへの計測データ送信](https://docs.google.com/document/d/1tiddFEg67ph7HPrdAFxxsI_ig8hqgSlbRlRw6eu1vWY/edit?usp=share_link)
+
+#### [②AWS IoT Core　〜　Amazon QuickSightで計測データをリアルタイムにグラフ表示](https://docs.google.com/document/d/1TYpLJRkzDRqHMULfcJrJxQyrZzoXgFfWbVAs6H08z7o/edit?usp=share_link)
+
+
+## 作者<br>
+**Reo Matsugano**<br>
+e-mail: reo.matsugano@gmail.com
+
+*お問い合わせは上記メールアドレス,またはIssuesまで*
+
+
+## ライセンス
