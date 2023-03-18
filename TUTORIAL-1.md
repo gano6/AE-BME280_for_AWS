@@ -12,7 +12,7 @@
 
 ****
 ## 1. Raspberry PiおよびAE-BME280のセットアップ
-<img src="/Users/matsugano/AE-BME280_for_AWS/images/1.RaspPi_setup/RaspPi4_ModelB.png">
+![RaspPi4_ModelB](https://user-images.githubusercontent.com/91422957/226090638-b4531217-3597-4238-9ab0-c7dad8554085.png)
 
 ### ●必要なもの
 - Raspberry Pi本体
@@ -56,13 +56,13 @@
 
 *AE-BME280のピン位置*
 
-<img src="/Users/matsugano/AE-BME280_for_AWS/images/1.RaspPi_setup/AE-BME280_pin_num.jpg">
+![AE-BME280_pin_num](https://user-images.githubusercontent.com/91422957/226090687-cf9ab2e2-22a9-4272-8774-0c118d3c4891.jpg)
 
 ※ J1~J3もジャンパする
 
 *Raspberry PiのGPIOピン位置*
 
-<img src="/Users/matsugano/AE-BME280_for_AWS/images/1.RaspPi_setup/RaspPi_pinout.png">
+<img width="492" alt="RaspPi_pinout" src="https://user-images.githubusercontent.com/91422957/226090707-b2af6174-c612-4031-a869-f7e4fdc60c1a.png">
 
 参考:
 > **pinout.xyz**<br>
@@ -146,36 +146,39 @@ git clone https://github.com/gano6/AE-BME280_for_AWS.git
 
 ### ① AWSマネジメントコンソールにログインし、AWS IoT Coreを開く。
 
-<img src="/Users/matsugano/AE-BME280_for_AWS/images/4.AWS_IoT_Core_setup/1.png">
+![1](https://user-images.githubusercontent.com/91422957/226090789-28dfe43d-ba57-4555-9fda-b0b2b6a23519.png)
 
 ### ② 「１個のデバイスを接続」をクリック。
 
-<img src="/Users/matsugano/AE-BME280_for_AWS/images/4.AWS_IoT_Core_setup/2.png">
+![2](https://user-images.githubusercontent.com/91422957/226090807-f49c3cf3-fd34-497c-a6c9-9d3499661f8d.png)
+
 
 ### ③ 「デバイスを準備する」の内容に従い、完了したら「次へ」をクリック。
 
-<img src="/Users/matsugano/AE-BME280_for_AWS/images/4.AWS_IoT_Core_setup/3.png">
+![3](https://user-images.githubusercontent.com/91422957/226090826-87edf9d2-1fb7-4079-85f7-fe0b22e5106f.png)
 
 ### ④ 「新しいモノを作成」を選択し、「モノの名前」を記入する。完了したら「次へ」をクリック。
 
-<img src="/Users/matsugano/AE-BME280_for_AWS/images/4.AWS_IoT_Core_setup/4.png">
+![4](https://user-images.githubusercontent.com/91422957/226090852-b5b5677b-d72c-4d32-8d1b-80cd647b6e31.png)
 
 ### ⑤ プラットフォームOSで「Linux/MacOS」、SDKで「Python」を選択し、「次へ」をクリック。
 
-<img src="/Users/matsugano/AE-BME280_for_AWS/images/4.AWS_IoT_Core_setup/5.png">
+![5](https://user-images.githubusercontent.com/91422957/226090867-d1535808-0e82-423d-8cd1-eea753f1edae.png)
 
 ### ⑥ 作成された接続キットをRaspberry Piにダウンロードし解凍する（接続キットはここでしか入手できない）。完了したら「次へ」をクリック。
 
-<img src="/Users/matsugano/AE-BME280_for_AWS/images/4.AWS_IoT_Core_setup/6.png">
+![6](https://user-images.githubusercontent.com/91422957/226090880-48a55706-3d3b-4b7c-9144-6a70feeb2dbf.png)
 
 ### ⑦ ダウンロードした接続キット内の「start.sh」に権限を付与し、実行する。接続成功するとサブスクリプションの部分に「Hello World!」と表示される。完了したら「次へ」をクリック。
 
-<img src="/Users/matsugano/AE-BME280_for_AWS/images/4.AWS_IoT_Core_setup/7.png">
+![7](https://user-images.githubusercontent.com/91422957/226090893-aa09eb46-cefc-4dda-bce1-6e64518ed249.png)
+
 
 ### ⑧ デバイスがAWS IoT Coreに接続されていることを確認したら「モノを表示」をクリック。
 
-<img src="/Users/matsugano/AE-BME280_for_AWS/images/4.AWS_IoT_Core_setup/8.png">
+![8](https://user-images.githubusercontent.com/91422957/226090909-3729a5e1-677a-4e50-8cd4-af4041fcb8f2.png)
+
 
 ### ⑨ 左サイドメニューの「"すべてのデバイス"→"モノ"」のページに遷移し、先ほど記入した名前のモノが表示される。
 
-<img src="/Users/matsugano/AE-BME280_for_AWS/images/4.AWS_IoT_Core_setup/9.png">
+![9](https://user-images.githubusercontent.com/91422957/226090925-93261528-ad5e-48dd-ba62-23aa3dee0f54.png)
