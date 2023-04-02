@@ -381,4 +381,4 @@ USER=Raspberry Piのユーザー名
 
 次はAWS IoT Coreに送信したデータをAWS IoT Analyticsで加工、保存、データセット作成を行い、AmazonQuickSightでグラフ表示します。
 
-### 「開発チュートリアル②」に進みましょう！
+### 「[開発チュートリアル②](./TUTORIAL-2.md)」に進みましょう！
