@@ -7,8 +7,7 @@
 10. AWS IoT Analyticsの設定
 11. Amazon QuickSightの設定
 12. 更新スケジュールの設定
-13. ビジュアルを作成する
-14. 終わりに
+13. 終わりに
 
 ※ ファイル左上の「:=」のようなアイコンに各セクションのリンクがあります。
 
@@ -23,7 +22,7 @@
 
 - AWSに接続するRaspberry Piが**１台**のみ
 
-
+****
 ## 10. AWS IoT Analyticsの設定
 
 *AWS IoT Analyticsを構成するコンポーネントの説明*
@@ -100,7 +99,7 @@
 
 ![27](https://user-images.githubusercontent.com/91422957/229295393-72b427a8-8aa4-4cce-9b30-c2aa7c2e2f28.png)
 
-
+****
 ## 11. Amazon QuickSightの設定
 
 ### 11.1 Amazon QuickSightへのサインアップ
@@ -176,7 +175,7 @@
 > [Amazon QuickSight でのデータの視覚化 - Amazon QuickSight](https://docs.aws.amazon.com/ja_jp/quicksight/latest/user/working-with-visuals.html)<br>
 参考日: 2023.3.31
 
-
+****
 ## 12. 更新スケジュールの設定
 
 *データセットはデフォルトでは自動的に更新されない。手動でも更新は可能だが、自動化のためにデータセットの更新スケジュールを設定する。*
@@ -234,5 +233,14 @@
 
 ![47](https://user-images.githubusercontent.com/91422957/229338842-2372b6b1-edcf-45bc-82eb-9f97fe097e3a.png)
 
+****
+## 13. 終わりに
 
-## 14. 終わりに
+以上で全ての開発チュートリアルは完了です！<br>
+お疲れ様でした！
+
+ラズパイやセンサー、AWSを使った農業IoTの開発や、その他研究活動などの参考となれば幸いです。
+
+ご不明な点、誤っている点等ございましたら、「README.md」に記載の連絡先やGitリポジトリのIssuesにてお問い合わせください。
+
+ありがとうございました。
