@@ -71,4 +71,4 @@ e-mail: reo.matsugano@gmail.com
 
 
 ## ライセンス
-
+This repository is licensed under the [MIT License](./LICENSE)
