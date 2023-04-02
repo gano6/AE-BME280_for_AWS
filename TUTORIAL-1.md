@@ -7,7 +7,7 @@
 2. Raspberry PiおよびAE-BME280のセットアップ
 3. リポジトリのインストール
 4. AWSアカウントおよびIAMユーザーの作成
-5. AWS IoT Coreのセットアップ
+5. AWS IoT Coreの設定
 6. "aws-iot-device-sdk-python-v2"の置換
 7. start.shの修正
 8. cronでスケジュール管理
@@ -143,7 +143,7 @@ $ sudo apt-get install python-smbus
 
 *接続できているか確認*
 ```
-i2cdetect -y 1
+$ i2cdetect -y 1
 ```
 
 「76」と表示されていれば接続成功
@@ -198,11 +198,12 @@ git clone https://github.com/gano6/AE-BME280_for_AWS.git
 - AWSQuickSightIoTAnalyticsAccess
 
 ****
-## 5. AWS IoT Coreのセットアップ
+## 5. AWS IoT Coreの設定
 
-*セットアップ前の必要事項*
+*設定前の必要事項*
 
 - リージョンは「バージニア北部（us-east-1）」
+- 接続するRaspberry Piが１台のみである
 - Raspberry Piに「git」をインストール
 - Raspberry Piに「Python（ver3.6以上）」をインストール
 
@@ -321,18 +322,18 @@ until A;do sleep 0;done
 ### ログファイルを作成する
 cronの実行結果を確認するため、正常終了時とエラー発生時の２つのログファイルを作成する。
 
-#### ① 正常終了時用ログファイルを作成する
+#### ① 正常終了時用ログファイルを作成する。
 ```
 $ touch /var/log/example.log
 ```
 
-#### ② エラー発生時用ログファイルを作成する
+#### ② エラー発生時用ログファイルを作成する。
 
 ```
 $ touch /var/log/example_error.log
 ```
 
-#### ③ 作成したファイルに実行権限を与える
+#### ③ 作成したファイルに実行権限を与える。
 ```
 $ sudo chmod 777 /var/log/example.log
 ```
@@ -343,12 +344,12 @@ $ sudo chmod 777 /var/log/example_error.log
 
 
 ### crontabを編集する
-#### ① crontabを開く
+#### ① crontabを開く。
 ```
 $ crontab -e
 ```
 
-#### ② nanoが開くので、末尾の記述を削除し以下を記載する
+#### ② nanoが開くので、末尾の記述を削除し以下を記載する。
 ```
 SHELL=/bin/bash
 LAUGUAGE=ja_jp.UTF-8
@@ -367,6 +368,11 @@ USER=Raspberry Piのユーザー名
 **qiita.com**
 > [cron を使用した時間指定 - Qiita](https://qiita.com/nemutas/items/3f5816eabbf0eda5e6a9)<br>
 > 参考日: 2023.3.19
+
+#### ③ AWS IoT Coreの「MQTTテストクライアント」を開き、MQTTトピック「sdk/test/python」を入力してサブスクライブする。cronが正常に動作していたら、データが送信される。
+
+![14](https://user-images.githubusercontent.com/91422957/229339575-1434833b-a5e0-4133-a4a4-46b41a8030a5.png)
+
 
 ****
 
