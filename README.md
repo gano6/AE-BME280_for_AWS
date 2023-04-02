@@ -58,9 +58,9 @@ git clone https://github.com/gano6/AE-BME280_for_AWS.git
 
 ## 開発チュートリアル
 
-#### [開発チュートリアル①](https://github.com/gano6/AE-BME280_for_AWS)
+#### [開発チュートリアル①](./TUTORIAL-1.md)
 
-#### [開発チュートリアル②](https://github.com/gano6/Adafruit-STEMMA-Soil-Sensor_for_AWS)
+#### [開発チュートリアル②](./TUTORIAL-2.md)
 
 
 ## 作者<br>
@@ -71,3 +71,4 @@ e-mail: reo.matsugano@gmail.com
 
 
 ## ライセンス
+
