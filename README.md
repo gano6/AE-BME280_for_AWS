@@ -58,9 +58,9 @@ git clone https://github.com/gano6/AE-BME280_for_AWS.git
 
 ## 開発チュートリアル
 
-#### [①Raspberry Piセットアップ　〜　AWS IoT Coreへの計測データ送信](https://docs.google.com/document/d/1tiddFEg67ph7HPrdAFxxsI_ig8hqgSlbRlRw6eu1vWY/edit?usp=share_link)
+#### [開発チュートリアル①](https://github.com/gano6/AE-BME280_for_AWS)
 
-#### [②AWS IoT Core　〜　Amazon QuickSightで計測データをリアルタイムにグラフ表示](https://docs.google.com/document/d/1TYpLJRkzDRqHMULfcJrJxQyrZzoXgFfWbVAs6H08z7o/edit?usp=share_link)
+#### [開発チュートリアル②](https://github.com/gano6/Adafruit-STEMMA-Soil-Sensor_for_AWS)
 
 
 ## 作者<br>
