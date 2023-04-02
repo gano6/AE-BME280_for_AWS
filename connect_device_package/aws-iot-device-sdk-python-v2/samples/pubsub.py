@@ -15,7 +15,7 @@ import json
 # since it is subscribed to that same topic.
 
 # Parse arguments
-import command_line_utils;
+import command_line_utils
 cmdUtils = command_line_utils.CommandLineUtils("PubSub - Send and recieve messages through an MQTT connection.")
 cmdUtils.add_common_mqtt_commands()
 cmdUtils.add_common_topic_message_commands()
@@ -100,6 +100,12 @@ if __name__ == '__main__':
     # Publish message to server desired number of times.
     # This step is skipped if message is blank.
     # This step loops forever if count was set to 0.
+
+######## 修正部分 #########################################################################
+
+    import my_bme280
+    import datetime
+
     if message_string:
         if message_count == 0:
             print ("Sending messages until program killed")
@@ -107,16 +113,37 @@ if __name__ == '__main__':
             print ("Sending {} message(s)".format(message_count))
 
         publish_count = 1
-        while (publish_count <= message_count) or (message_count == 0):
-            message = "{} [{}]".format(message_string, publish_count)
+
+        #  AWS IoT Core側に最長12時間のセッション制限がある
+        #  12時間以上継続して計測する場合、while文など繰り返し処理を用いたスケジュール管理は不適
+        if (publish_count <= message_count) or (message_count == 0):
+
+            # センサーデータの取得
+            tmp, prs, hmd = my_bme280.readData()
+            #　現在時刻の取得
+            now = datetime.datetime.now()
+            now_str = str(now)
+
+            #　センサーデータの表示
+            message = {}
+            message['count'] = "[{}]".format(publish_count)
+            message['temperature'] = "{}".format(tmp)
+            message['pressure'] = "{}".format(prs)
+            message['humidity'] = "{}".format(hmd)
+            message['datetime'] = "{}".format(now_str)
             print("Publishing message to topic '{}': {}".format(message_topic, message))
+
             message_json = json.dumps(message)
             mqtt_connection.publish(
                 topic=message_topic,
                 payload=message_json,
                 qos=mqtt.QoS.AT_LEAST_ONCE)
-            time.sleep(1)
             publish_count += 1
+
+            # 計測スケジュールはcronで管理するため、処理を正常終了させる
+            sys.exit(0)
+
+########################################################################################
 
     # Wait for all messages to be received.
     # This waits forever if count was set to 0.
